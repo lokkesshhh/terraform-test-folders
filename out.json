@@ -1,0 +1,49 @@
+{
+  "resourcegroup": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "/subscriptions/895445ff-2d11-4325-95e8-20bc8a27fef9/resourceGroups/CloudOps-merarg-0",
+      "/subscriptions/895445ff-2d11-4325-95e8-20bc8a27fef9/resourceGroups/CloudOps-merarg-1",
+      "/subscriptions/895445ff-2d11-4325-95e8-20bc8a27fef9/resourceGroups/CloudOps-merarg-2"
+    ]
+  },
+  "virtual_network_name": {
+    "sensitive": true,
+    "type": [
+      "tuple",
+      [
+        [
+          "list",
+          "string"
+        ],
+        [
+          "list",
+          "string"
+        ],
+        [
+          "list",
+          "string"
+        ]
+      ]
+    ],
+    "value": [
+      [
+        "10.0.0.0/16"
+      ],
+      [
+        "10.0.0.0/16"
+      ],
+      [
+        "10.0.0.0/16"
+      ]
+    ]
+  }
+}

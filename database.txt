@@ -1,0 +1,40 @@
+resource "azurerm_mssql_server" "my_server" {
+  name                              = var.sql_server_name
+  resource_group_name               = azurerm_resource_group.azrm.name
+  location                          = var.location
+  version                           = "8.0"
+  administrator_login               = var.administrator_login
+  administrator_login_password      = var.administrator_pwd
+  sku_name                          = "GP_Gen5_2"
+  storage_mb                        = var.db_storage_mb
+  auto_grow_enabled                 = var.db_auto_grow_enabled
+  backup_retention_days             = 7
+  # geo_redundant_backup_enabled      = false
+  # infrastructure_encryption_enabled = false
+  public_network_access_enabled     = true
+  
+  #ssl_minimal_tls_version_enforced  = "TLS1_2"
+  tags = var.common_tags
+  # threat_detection_policy {
+
+  #   enabled              = var.td_policy[0]
+  #   retention_days       = var.td_policy[1]
+  #   email_account_admins = var.td_policy[2]
+  #   email_addresses      = var.td_policy[3]
+  # }
+
+}
+
+resource "azurerm_mssql_database" "azdb" {
+
+  name         = var.db_name
+  server_id    = azurerm_mssql_server.my_server.id
+  collation    = "SQL_Latin1_General_CP1_CI_AS"
+  license_type = "LicenseIncluded"
+  #   max_size_gb    = 4
+  #   read_scale     = true
+  #   sku_name       = "S0"
+  zone_redundant = true
+
+}
+
