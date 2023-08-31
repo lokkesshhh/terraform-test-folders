@@ -11,7 +11,7 @@ variable "resource_group_name" {
 
 variable "virtual_network_name" {
   default     = "vn1"
-  description = "description of the virtual network"
+  description = "description of the virtual network wohoooo"
   type        = string
 
 }
