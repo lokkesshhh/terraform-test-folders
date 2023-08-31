@@ -23,13 +23,8 @@ terraform {
 }
 
 
-# provider block
-provider "azurerm" {
-  # Configuration options
-  features {
 
-  }
-}
+
 # provider blccok2 
 provider "azurerm" {
   alias = "provider2-westUS"
